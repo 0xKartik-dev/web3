@@ -4,7 +4,7 @@ contract Mood{
 
     string mood;
 
-    function  setMood(string memory _mood) public 
+    function setMood(string memory _mood) public 
     {
         mood=_mood; 
     }
