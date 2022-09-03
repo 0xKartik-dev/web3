@@ -7,3 +7,6 @@ Commands Executed:
 npm install --save-dev hardhat
 npx hardhat
 npm install --save-dev @nomicfoundation/hardhat-toolbox
+npm install dotenv // to use .env file
+npx hardhat compile
+npx hardhat run scripts/deploy.js --network rinkeby
