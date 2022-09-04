@@ -93,9 +93,9 @@ export default function Home() {
         provider
       );
       // call the whitListAddressCounter  from the contract
-      const _numberOfWhitelisted =
-        await whitelistContract.numAddressesWhitelisted();
-      setWhitListAddressCounter(_numberOfWhitelisted);
+      const _whiteListCounter =
+        await whitelistContract.whitListAddressCounter();
+      setWhitListAddressCounter(_whiteListCounter);
     } catch (err) {
       console.error(err);
     }
