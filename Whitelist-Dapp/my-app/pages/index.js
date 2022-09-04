@@ -13,7 +13,7 @@ export default function Home() {
   // loading is set to true when we are waiting for a transaction to get mined
   const [loading, setLoading] = useState(false);
   // numberOfWhitelisted tracks the number of addresses's whitelisted
-  const [numberOfWhitelisted, setNumberOfWhitelisted] = useState(0);
+  const [whitListAddressCounter, setWhitListAddressCounter] = useState(0);
   // Create a reference to the Web3 Modal (used for connecting to Metamask) which persists as long as the page is open
   const web3ModalRef = useRef();
 
@@ -92,10 +92,10 @@ export default function Home() {
         abi,
         provider
       );
-      // call the numAddressesWhitelisted from the contract
+      // call the whitListAddressCounter  from the contract
       const _numberOfWhitelisted =
         await whitelistContract.numAddressesWhitelisted();
-      setNumberOfWhitelisted(_numberOfWhitelisted);
+      setWhitListAddressCounter(_numberOfWhitelisted);
     } catch (err) {
       console.error(err);
     }
