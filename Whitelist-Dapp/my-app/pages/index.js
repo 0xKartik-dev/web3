@@ -13,7 +13,7 @@ export default function Home() {
   // loading is set to true when we are waiting for a transaction to get mined
   const [loading, setLoading] = useState(false);
   // numberOfWhitelisted tracks the number of addresses's whitelisted
-  const [whitListAddressCounter, setWhitListAddressCounter] = useState(0);
+  const [numberOfWhitelisted, setNumberOfWhitelisted] = useState(0);
   // Create a reference to the Web3 Modal (used for connecting to Metamask) which persists as long as the page is open
   const web3ModalRef = useRef();
 
@@ -92,10 +92,10 @@ export default function Home() {
         abi,
         provider
       );
-      // call the whitListAddressCounter  from the contract
-      const _whiteListCounter =
-        await whitelistContract.whitListAddressCounter();
-      setWhitListAddressCounter(_whiteListCounter);
+      // call the numAddressesWhitelisted from the contract
+      const _numberOfWhitelisted =
+        await whitelistContract.numAddressesWhitelisted();
+      setNumberOfWhitelisted(_numberOfWhitelisted);
     } catch (err) {
       console.error(err);
     }
@@ -204,7 +204,7 @@ export default function Home() {
             Its an NFT collection for developers in Crypto.
           </div>
           <div className={styles.description}>
-            {whitListAddressCounter} have already joined the Whitelist
+            {numberOfWhitelisted} have already joined the Whitelist
           </div>
           {renderButton()}
         </div>
