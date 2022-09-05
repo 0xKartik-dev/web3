@@ -16,7 +16,7 @@ contract CryptoDevs is ERC721Enumerable, Ownable {
     uint256 public presaleEnded;
 
     modifier onlyWhenNotPaused() {
-        require(!paused, "conrtact currently Paused");
+        require(!_paused, "conrtact currently Paused");
         _;
     }
 
@@ -31,7 +31,7 @@ contract CryptoDevs is ERC721Enumerable, Ownable {
 
     function startPresale() public onlyOwner {
         presaleStarted = true;
-        presaleStarted = block.timestamp + 5 minutes;
+        presaleEnded = block.timestamp + 5 minutes;
     }
 
     function presaleMint() public payable onlyWhenNotPaused {
