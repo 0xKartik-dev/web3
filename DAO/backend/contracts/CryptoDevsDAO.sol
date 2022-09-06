@@ -142,6 +142,21 @@ contract CryptoDevsDAO is Ownable {
         }
     }
 
+    // Create a modifier which only allows a function to be
+    // called if the given proposals' deadline HAS been exceeded
+    // and if the proposal has not yet been executed
+    modifier inactiveProposalOnly(uint256 proposalIndex) {
+        require(
+            proposals[proposalIndex].deadline <= block.timestamp,
+            "DEADLINE_NOT_EXCEEDED"
+        );
+        require(
+            proposals[proposalIndex].executed == false,
+            "PROPOSAL_ALREADY_EXECUTED"
+        );
+        _;
+    }
+
     /// @dev executeProposal allows any CryptoDevsNFT holder to execute a proposal after it's deadline has been exceeded
     /// @param proposalIndex - the index of the proposal to execute in the proposals array
     function executeProposal(uint256 proposalIndex)
