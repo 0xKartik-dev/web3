@@ -2,17 +2,17 @@ require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config({ path: "env" });
 
 const ALCHEMY_API_KEY_URL =
-  "https://eth-rinkeby.alchemyapi.io/v2/replaced";
+  "https://eth-goerli.g.alchemy.com/v2/yJ48Bc_dyrkbd_pHlhOm9wLVsPVYvRom";
 
-const RINKEBY_PRIVATE_KEY =
-  "replaced";
+const GOERLI_KEY =
+  "f04f5d6a844e8a4fd7666fd1e1ac6e201812eee88da8992fa4fa34620e0ebde2";
 
 module.exports = {
   solidity: "0.8.9",
   networks: {
-    rinkeby: {
+    goerli: {
       url: ALCHEMY_API_KEY_URL,
-      accounts: [RINKEBY_PRIVATE_KEY],
+      accounts: [GOERLI_KEY],
     },
   },
 };
